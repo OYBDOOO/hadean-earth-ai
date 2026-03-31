@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冥古宙地球 — AI 图像对比展板</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --card-bg: #12121a;
+    --accent: #ff6b35;
+    --accent2: #4ecdc4;
+    --text: #e0e0e0;
+    --muted: #888;
+    --border: #2a2a3a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'SF Pro Display', -apple-system, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+  }
+
+  /* 头部 */
+  .hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: linear-gradient(180deg, #1a0a00 0%, var(--bg) 100%);
+    border-bottom: 1px solid var(--border);
+  }
+  .hero h1 {
+    font-size: 2.8em;
+    background: linear-gradient(135deg, var(--accent), #ffd700, var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+  }
+  .hero .subtitle {
+    color: var(--muted);
+    font-size: 1.1em;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .hero .stats {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+  .hero .stat {
+    text-align: center;
+  }
+  .hero .stat-num {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .hero .stat-label {
+    font-size: 0.85em;
+    color: var(--muted);
+  }
+
+  /* 时间线 */
+  .timeline-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    gap: 0;
+    overflow-x: auto;
+    background: #0d0d14;
+    border-bottom: 1px solid var(--border);
+  }
+  .tl-node {
+    text-align: center;
+    min-width: 100px;
+    position: relative;
+  }
+  .tl-node::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    right: -50%;
+    width: 100%;
+    height: 2px;
+    background: var(--border);
+    z-index: 0;
+  }
+  .tl-node:last-child::after { display: none; }
+  .tl-dot {
+    width: 12px; height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin: 0 auto 6px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 8px var(--accent);
+  }
+  .tl-time { font-size: 0.9em; color: var(--accent2); font-weight: 600; }
+  .tl-event { font-size: 0.7em; color: var(--muted); max-width: 120px; margin: 0 auto; }
+
+  /* 主题区域 */
+  .theme-section {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  .theme-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent);
+  }
+  .theme-header h2 {
+    font-size: 1.6em;
+    color: var(--accent);
+  }
+  .theme-header .paper-badge {
+    background: var(--accent2);
+    color: #000;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 600;
+  }
+
+  /* 对比网格 */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 20px;
+  }
+  .image-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .image-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(255, 107, 53, 0.15);
+  }
+  .image-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+  }
+  .image-card .placeholder {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a0500, #0a0a1a);
+    color: var(--muted);
+    font-size: 1.2em;
+  }
+  .card-info {
+    padding: 16px;
+  }
+  .card-info .api-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .api-tag.openai { background: #10a37f22; color: #10a37f; border: 1px solid #10a37f44; }
+  .api-tag.flux { background: #7c3aed22; color: #a78bfa; border: 1px solid #7c3aed44; }
+  .api-tag.midjourney { background: #e1195722; color: #ff6b8a; border: 1px solid #e1195744; }
+  .card-info .prompt-preview {
+    font-size: 0.8em;
+    color: var(--muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* 引用区 */
+  .citations {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+  }
+  .citations summary {
+    cursor: pointer;
+    font-size: 0.85em;
+    color: var(--accent2);
+  }
+  .citations ul {
+    margin-top: 6px;
+    padding-left: 16px;
+  }
+  .citations li {
+    font-size: 0.75em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  /* 方法论 */
+  .methodology {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 30px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .methodology h2 { color: var(--accent2); margin-bottom: 16px; }
+  .method-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .method-step {
+    background: #1a1a2e;
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    min-width: 120px;
+  }
+  .method-step .step-num {
+    font-size: 1.4em;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .method-step .step-text {
+    font-size: 0.8em;
+    color: var(--text);
+  }
+  .method-arrow {
+    font-size: 1.5em;
+    color: var(--accent);
+  }
+
+  /* 页脚 */
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted);
+    font-size: 0.85em;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 600px) {
+    .compare-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.8em; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>🌋 冥古宙地球 · AI 视觉重建</h1>
+  <p class="subtitle">
+    基于 30 篇科学论文的视觉约束，使用多种生成式 AI 工具重建冥古宙地球（4.5–3.8 Ga）的不同面貌
+  </p>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">30</div>
+      <div class="stat-label">引用论文</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">6</div>
+      <div class="stat-label">视觉主题</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">—</div>
+      <div class="stat-label">生成图像</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2</div>
+      <div class="stat-label">AI 工具</div>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-bar">
+
+  <div class="tl-node">
+    <div class="tl-dot"></div>
+    <div class="tl-time">4.53 Ga</div>
+    <div class="tl-event">Theia 大撞击 / 月球形成</div>
+  </div>
+
+  <div class="tl-node">
+    <div class="tl-dot"></div>
+    <div class="tl-time">4.5 Ga</div>
+    <div class="tl-event">全球岩浆海洋</div>
+  </div>
+
+  <div class="tl-node">
+    <div class="tl-dot"></div>
+    <div class="tl-time">4.4 Ga</div>
+    <div class="tl-event">最早液态水 / 原始地壳</div>
+  </div>
+
+  <div class="tl-node">
+    <div class="tl-dot"></div>
+    <div class="tl-time">4.3 Ga</div>
+    <div class="tl-event">锆石证据：表面液态水</div>
+  </div>
+
+  <div class="tl-node">
+    <div class="tl-dot"></div>
+    <div class="tl-time">4.2 Ga</div>
+    <div class="tl-event">早期地磁场</div>
+  </div>
+
+  <div class="tl-node">
+    <div class="tl-dot"></div>
+    <div class="tl-time">4.0 Ga</div>
+    <div class="tl-event">原始地壳分异</div>
+  </div>
+
+  <div class="tl-node">
+    <div class="tl-dot"></div>
+    <div class="tl-time">3.9 Ga</div>
+    <div class="tl-event">晚期重轰炸</div>
+  </div>
+
+  <div class="tl-node">
+    <div class="tl-dot"></div>
+    <div class="tl-time">3.8 Ga</div>
+    <div class="tl-event">过渡到始太古代</div>
+  </div>
+</div>
+
+<div class="methodology">
+  <h2>📐 方法论：论文驱动的图像生成流水线</h2>
+  <div class="method-flow">
+    <div class="method-step">
+      <div class="step-num">①</div>
+      <div class="step-text">论文知识库<br><small>30 篇</small></div>
+    </div>
+    <div class="method-arrow">→</div>
+    <div class="method-step">
+      <div class="step-num">②</div>
+      <div class="step-text">视觉约束<br><small>提取</small></div>
+    </div>
+    <div class="method-arrow">→</div>
+    <div class="method-step">
+      <div class="step-num">③</div>
+      <div class="step-text">RAG 检索<br><small>按主题匹配</small></div>
+    </div>
+    <div class="method-arrow">→</div>
+    <div class="method-step">
+      <div class="step-num">④</div>
+      <div class="step-text">Prompt 组装<br><small>结构化拼装</small></div>
+    </div>
+    <div class="method-arrow">→</div>
+    <div class="method-step">
+      <div class="step-num">⑤</div>
+      <div class="step-text">多 API 生成<br><small>OpenAI + FLUX</small></div>
+    </div>
+    <div class="method-arrow">→</div>
+    <div class="method-step">
+      <div class="step-num">⑥</div>
+      <div class="step-text">对比分析<br><small>科学一致性</small></div>
+    </div>
+  </div>
+  <p style="color: var(--muted); font-size: 0.9em; text-align: center;">
+    每张图像的 prompt 不是凭空想象，而是由论文中提取的地质、大气、海洋等视觉特征自动拼装而成。<br>
+    这是一个 <strong>文献驱动的视觉重建</strong>（literature-informed speculative visualization）流程。
+  </p>
+</div>
+
+
+<div class="theme-section">
+  <div class="theme-header">
+    <h2>🌍 宏观行星视角</h2>
+    <span class="paper-badge">📚 0 papers</span>
+  </div>
+  <div class="compare-grid">
+    
+          <div class="image-card">
+            <div class="placeholder">🎨 待生成 (OPENAI)<br><small>运行 batch_generate_images.py --api openai</small></div>
+            <div class="card-info">
+              <span class="api-tag openai">OPENAI</span>
+              <div class="prompt-preview">运行 RAG 流水线后将自动填充论文驱动的 prompt</div>
+            </div>
+          </div>
+          <div class="image-card">
+            <div class="placeholder">🎨 待生成 (FLUX)<br><small>运行 batch_generate_images.py --api flux</small></div>
+            <div class="card-info">
+              <span class="api-tag flux">FLUX</span>
+              <div class="prompt-preview">运行 RAG 流水线后将自动填充论文驱动的 prompt</div>
+            </div>
+          </div>
+  </div>
+</div>
+
+<div class="theme-section">
+  <div class="theme-header">
+    <h2>🌊 地表火山海洋</h2>
+    <span class="paper-badge">📚 0 papers</span>
+  </div>
+  <div class="compare-grid">
+    
+          <div class="image-card">
+            <div class="placeholder">🎨 待生成 (OPENAI)<br><small>运行 batch_generate_images.py --api openai</small></div>
+            <div class="card-info">
+              <span class="api-tag openai">OPENAI</span>
+              <div class="prompt-preview">运行 RAG 流水线后将自动填充论文驱动的 prompt</div>
+            </div>
+          </div>
+          <div class="image-card">
+            <div class="placeholder">🎨 待生成 (FLUX)<br><small>运行 batch_generate_images.py --api flux</small></div>
+            <div class="card-info">
+              <span class="api-tag flux">FLUX</span>
+              <div class="prompt-preview">运行 RAG 流水线后将自动填充论文驱动的 prompt</div>
+            </div>
+          </div>
+  </div>
+</div>
+
+<div class="theme-section">
+  <div class="theme-header">
+    <h2>☄️ 陨石撞击事件</h2>
+    <span class="paper-badge">📚 0 papers</span>
+  </div>
+  <div class="compare-grid">
+    
+          <div class="image-card">
+            <div class="placeholder">🎨 待生成 (OPENAI)<br><small>运行 batch_generate_images.py --api openai</small></div>
+            <div class="card-info">
+              <span class="api-tag openai">OPENAI</span>
+              <div class="prompt-preview">运行 RAG 流水线后将自动填充论文驱动的 prompt</div>
+            </div>
+          </div>
+          <div class="image-card">
+            <div class="placeholder">🎨 待生成 (FLUX)<br><small>运行 batch_generate_images.py --api flux</small></div>
+            <div class="card-info">
+              <span class="api-tag flux">FLUX</span>
+              <div class="prompt-preview">运行 RAG 流水线后将自动填充论文驱动的 prompt</div>
+            </div>
+          </div>
+  </div>
+</div>
+
+<div class="theme-section">
+  <div class="theme-header">
+    <h2>🔥 热液喷口与生命起源</h2>
+    <span class="paper-badge">📚 0 papers</span>
+  </div>
+  <div class="compare-grid">
+    
+          <div class="image-card">
+            <div class="placeholder">🎨 待生成 (OPENAI)<br><small>运行 batch_generate_images.py --api openai</small></div>
+            <div class="card-info">
+              <span class="api-tag openai">OPENAI</span>
+              <div class="prompt-preview">运行 RAG 流水线后将自动填充论文驱动的 prompt</div>
+            </div>
+          </div>
+          <div class="image-card">
+            <div class="placeholder">🎨 待生成 (FLUX)<br><small>运行 batch_generate_images.py --api flux</small></div>
+            <div class="card-info">
+              <span class="api-tag flux">FLUX</span>
+              <div class="prompt-preview">运行 RAG 流水线后将自动填充论文驱动的 prompt</div>
+            </div>
+          </div>
+  </div>
+</div>
+
+<div class="theme-section">
+  <div class="theme-header">
+    <h2>🔴 全球岩浆海洋</h2>
+    <span class="paper-badge">📚 0 papers</span>
+  </div>
+  <div class="compare-grid">
+    
+          <div class="image-card">
+            <div class="placeholder">🎨 待生成 (OPENAI)<br><small>运行 batch_generate_images.py --api openai</small></div>
+            <div class="card-info">
+              <span class="api-tag openai">OPENAI</span>
+              <div class="prompt-preview">运行 RAG 流水线后将自动填充论文驱动的 prompt</div>
+            </div>
+          </div>
+          <div class="image-card">
+            <div class="placeholder">🎨 待生成 (FLUX)<br><small>运行 batch_generate_images.py --api flux</small></div>
+            <div class="card-info">
+              <span class="api-tag flux">FLUX</span>
+              <div class="prompt-preview">运行 RAG 流水线后将自动填充论文驱动的 prompt</div>
+            </div>
+          </div>
+  </div>
+</div>
+
+<div class="theme-section">
+  <div class="theme-header">
+    <h2>🌙 冷却后的冥古宙</h2>
+    <span class="paper-badge">📚 0 papers</span>
+  </div>
+  <div class="compare-grid">
+    
+          <div class="image-card">
+            <div class="placeholder">🎨 待生成 (OPENAI)<br><small>运行 batch_generate_images.py --api openai</small></div>
+            <div class="card-info">
+              <span class="api-tag openai">OPENAI</span>
+              <div class="prompt-preview">运行 RAG 流水线后将自动填充论文驱动的 prompt</div>
+            </div>
+          </div>
+          <div class="image-card">
+            <div class="placeholder">🎨 待生成 (FLUX)<br><small>运行 batch_generate_images.py --api flux</small></div>
+            <div class="card-info">
+              <span class="api-tag flux">FLUX</span>
+              <div class="prompt-preview">运行 RAG 流水线后将自动填充论文驱动的 prompt</div>
+            </div>
+          </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>冥古宙地球 AI 视觉重建项目 · Paper-grounded Hadean Earth Visualization</p>
+  <p>Generated by paper_to_prompt_rag.py + batch_generate_images.py</p>
+  <p style="margin-top: 8px;">
+    ⚠️ 免责声明：这些图像是基于文献的推测性可视化，不是冥古宙地球的真实照片。<br>
+    Disclaimer: These are literature-informed speculative visualizations, not actual photographs.
+  </p>
+</div>
+
+</body>
+</html>

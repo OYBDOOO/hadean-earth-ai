@@ -1,0 +1,76 @@
+[
+  {
+    "api": "gemini",
+    "file": "gallery/orbit_gemini.png",
+    "prompt": "Hadean Earth, 4.2 billion years ago, Dark planet with scattered volcanic glow, thick hazy atmosphere, no recognizable modern continents, possible partial ocean coverage, debris from recent impacts, waterworld, dark ocean, protocrust, ancient zircon terrain, no modern continents, 4.4 Ga ocean, protocontinental islands, Jack Hills zircon, global dark ocean, earliest continental crust, magma ocean, solidification rafts, steam atmosphere, glowing surface, incandescent planet, scientifically grounded paleo-planetary reconstruction, photorealistic, cinematic lighting, ultra-detailed, no text, no watermark, no modern life, no spacecraft",
+    "theme": "orbit",
+    "citations": [
+      "Harrison, T.M. (2009): Zircon evidence suggests liquid water existed on Earth's surface as early as 4.4 Ga, challenging the 'hellish Hadean' narrative.",
+      "Wilde, S.A., Valley, J.W., Peck, W.H., Graham, C.M. (2001): Jack Hills zircons demonstrate continental crust and oceans existed at 4.4 Ga — only ~150 Myr after Earth formed.",
+      "Elkins-Tanton, L.T. (2012): Earth's earliest phase involved a global magma ocean that solidified from the bottom up over ~few million years.",
+      "Canup, R.M. (2012): The Moon-forming impact was so energetic it likely vaporized a significant fraction of both bodies.",
+      "Kasting, J.F. (1993): Classic paper establishing early Earth's atmosphere was CO2/N2-dominated with strong greenhouse effect compensating for the faint young Sun."
+    ]
+  },
+  {
+    "api": "gemini",
+    "file": "gallery/coast_gemini.png",
+    "prompt": "Hadean Earth, 4.0 billion years ago, Black basaltic or komatiite shoreline, dark warm ocean, dense steam, volcanic haze sky, no vegetation, possible lightning, sulfurous atmosphere, cool early Earth, temperate Hadean, stable liquid water, calm dark ocean, overcast rocky world, clement surface, CO2 atmosphere, warm ocean, thick cloud cover, greenhouse early Earth, volcanic emissions, fumaroles, sulfur haze, moderately oxidized, volcanic fog, scientifically grounded paleo-planetary reconstruction, photorealistic, cinematic lighting, ultra-detailed, no text, no watermark, no modern life, no spacecraft",
+    "theme": "coast",
+    "citations": [
+      "Valley, J.W., Peck, W.H., King, E.M., Wilde, S.A. (2002): Landmark 'Cool Early Earth' hypothesis: zircon oxygen isotopes suggest surface temperatures were moderate enough for liquid water at 4.4 Ga.",
+      "Sleep, N.H., Zahnle, K., Neuhoff, P.S. (2001): Clement (mild) surface conditions could have been established surprisingly early through CO2 weathering feedbacks.",
+      "Trail, D., Watson, E.B., Tailby, N.D. (2011): Hadean magmas were similar in oxidation state to modern ones, suggesting the atmosphere was not as extremely reducing as some models predict.",
+      "Kamber, B.S. (2015): Hadean crust was compositionally distinct from modern continents — darker, denser, and more mafic.",
+      "Arndt, N.T., Nisbet, E.G. (2012): Early Earth volcanism produced komatiites (ultra-hot lavas), and oceans may have been significantly warmer and iron-rich."
+    ]
+  },
+  {
+    "api": "gemini",
+    "file": "gallery/impact_gemini.png",
+    "prompt": "Hadean Earth, 4.2 billion years ago, Massive bolide striking surface or ocean, enormous steam/ejecta plume, shock wave, glowing impact melt, debris-filled sky, global dust layer, asteroid bombardment, impact melt sheets, cratered surface, ejecta blankets, crust destruction, late heavy bombardment, bolide streaks, overlapping craters, sustained impacts, scarred terrain, reducing atmosphere, impact haze, orange-brown sky, steam plumes, post-impact fog, scientifically grounded paleo-planetary reconstruction, photorealistic, cinematic lighting, ultra-detailed, no text, no watermark, no modern life, no spacecraft",
+    "theme": "impact",
+    "citations": [
+      "Marchi, S., Bottke, W.F., Elkins-Tanton, L.T., et al. (2014): Asteroid impacts were so frequent and large that they repeatedly mixed and buried early crust, explaining why almost no Hadean rock survives.",
+      "Bottke, W.F., Vokrouhlický, D., Minton, D., et al. (2012): Late Heavy Bombardment may have extended from a destabilized inner asteroid belt, not just outer solar system migration.",
+      "Zahnle, K., Lupu, R., Catling, D., Wogan, N. (2020): Large impacts created transient reduced atmospheres rich in hydrogen and methane, suitable for prebiotic chemistry.",
+      "Genda, H., Abe, Y. (2005): Giant impacts could strip away oceans and atmospheres, meaning early Earth may have repeatedly lost and regained its volatile envelope.",
+      "Chyba, C., Sagan, C. (1992): Organic molecules on early Earth came from multiple sources: atmospheric synthesis, hydrothermal vents, and extraterrestrial delivery via impacts."
+    ]
+  },
+  {
+    "api": "gemini",
+    "file": "gallery/vent_gemini.png",
+    "prompt": "Hadean Earth, 4.0 billion years ago, Dark ocean floor, mineral chimneys (black or white smokers), chemical-rich plumes, iron-sulfur deposits, no sunlight, turbulent mixing zones, black smoker vents, iron-sulfur deposits, hydrothermal chimney, deep ocean floor, mineral plumes, prebiotic chemistry, alkaline vents, mineral chimneys, serpentinization, chemical gradients, porous mineral structures, Lost City type, hydrothermal habitat, shallow hot springs, mineral pools, scientifically grounded paleo-planetary reconstruction, photorealistic, cinematic lighting, ultra-detailed, no text, no watermark, no modern life, no spacecraft",
+    "theme": "vent",
+    "citations": [
+      "Martin, W., Baross, J., Kelley, D., Russell, M.J. (2008): Alkaline hydrothermal vents provided chemical gradients and mineral catalysts for the origin of life.",
+      "Russell, M.J., Barge, L.M., Bhartia, R., et al. (2014): Alkaline hydrothermal vents (like Lost City) provide the chemical disequilibrium and mineral catalysts needed to drive the origin of life.",
+      "Nisbet, E.G., Sleep, N.H. (2001): Early life likely emerged in hydrothermal settings, possibly both deep-sea vents and shallow volcanic hot springs.",
+      "Bada, J.L. (2004): Multiple environments may have contributed to prebiotic chemistry, not just a single 'warm little pond'."
+    ]
+  },
+  {
+    "api": "gemini",
+    "file": "gallery/magma_ocean_gemini.png",
+    "prompt": "Hadean Earth, 4.5 billion years ago, Incandescent surface, floating dark solidified crust rafts, thick steam atmosphere, orange-red glow, no liquid water yet, magma ocean, solidification rafts, steam atmosphere, glowing surface, incandescent planet, degassing, magma ocean solidification, floating dark crust, steam outgassing, incandescent surface, crust formation, giant impact, Theia collision, debris disk, Moon formation, scientifically grounded paleo-planetary reconstruction, photorealistic, cinematic lighting, ultra-detailed, no text, no watermark, no modern life, no spacecraft",
+    "theme": "magma_ocean",
+    "citations": [
+      "Elkins-Tanton, L.T. (2012): Earth's earliest phase involved a global magma ocean that solidified from the bottom up over ~few million years.",
+      "Abe, Y. (1997): The magma ocean solidified relatively quickly (~few Myr), with volatile outgassing creating a thick steam atmosphere.",
+      "Canup, R.M. (2012): The Moon-forming impact was so energetic it likely vaporized a significant fraction of both bodies."
+    ]
+  },
+  {
+    "api": "gemini",
+    "file": "gallery/cool_hadean_gemini.png",
+    "prompt": "Hadean Earth, 4.2 billion years ago, Dark ocean under thick overcast sky, rocky islands, warm but not hellish, no modern blue sky, muted and subdued tones, cool early Earth, temperate Hadean, stable liquid water, calm dark ocean, overcast rocky world, clement surface, CO2 atmosphere, warm ocean, thick cloud cover, greenhouse early Earth, liquid water 4.3 Ga, shallow seas, dark rocky shoreline, ancient ocean, overcast thick sky, scientifically grounded paleo-planetary reconstruction, photorealistic, cinematic lighting, ultra-detailed, no text, no watermark, no modern life, no spacecraft",
+    "theme": "cool_hadean",
+    "citations": [
+      "Valley, J.W., Peck, W.H., King, E.M., Wilde, S.A. (2002): Landmark 'Cool Early Earth' hypothesis: zircon oxygen isotopes suggest surface temperatures were moderate enough for liquid water at 4.4 Ga.",
+      "Sleep, N.H., Zahnle, K., Neuhoff, P.S. (2001): Clement (mild) surface conditions could have been established surprisingly early through CO2 weathering feedbacks.",
+      "Mojzsis, S.J., Harrison, T.M., Pidgeon, R.T. (2001): Oxygen isotopes in 4.3 Ga zircons indicate liquid water interaction, pushing ocean formation back into the deep Hadean.",
+      "Harrison, T.M. (2009): Zircon evidence suggests liquid water existed on Earth's surface as early as 4.4 Ga, challenging the 'hellish Hadean' narrative."
+    ]
+  }
+]

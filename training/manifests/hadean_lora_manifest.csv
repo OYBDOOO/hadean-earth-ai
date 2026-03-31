@@ -1,0 +1,6 @@
+image_path,caption,theme,source_type,scientific_confidence,usage_note
+training/data/selected/orbit_001.jpg,"hadean earth, orbital view, dark rocky planet, steam-covered ocean, volcanic belts, impact haze, no modern continents",orbit,nasa,high,direct image
+training/data/selected/coast_001.jpg,"hadean earth shoreline, basaltic coast, hot primordial ocean, dense steam, volcanic haze, no vegetation",coast,geology_photo,medium,style only
+training/data/selected/impact_001.jpg,"hadean earth, meteor impact into dark ocean, giant steam plume, molten ejecta, ash-filled sky",impact,lpi,medium,prompt only
+training/data/selected/vent_001.jpg,"hadean seafloor, hydrothermal vents, black smokers, iron-sulfur minerals, mineral-rich water, dim underwater scene",vent,paper,high,prompt only
+training/data/selected/texture_001.jpg,"basaltic volcanic rock texture, black igneous surface, wet fractured crust",texture,geology_photo,high,style only

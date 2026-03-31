@@ -1,0 +1,642 @@
+{
+  "_meta": {
+    "description": "Structured knowledge base of Hadean Earth research papers with extracted visual constraints for image prompt generation.",
+    "version": "1.0",
+    "total_papers": 30,
+    "usage": "Feed this to paper_to_prompt_rag.py to generate literature-grounded image prompts."
+  },
+  "papers": [
+    {
+      "id": "harrison_2009",
+      "authors": "Harrison, T.M.",
+      "year": 2009,
+      "title": "The Hadean Crust: Evidence from >4 Ga Zircons",
+      "journal": "Annual Review of Earth and Planetary Sciences",
+      "doi": "10.1146/annurev.earth.031208.100151",
+      "url": "https://oceaniron.org/wp-content/uploads/sites/14/2018/10/Harrison_ARES_2009_58985.pdf",
+      "themes": ["crust", "ocean", "waterworld"],
+      "time_range_ga": [4.4, 4.0],
+      "visual_constraints": {
+        "surface": "dark oceanic surface with protocrustal fragments",
+        "water": "possible liquid water ocean, not purely molten",
+        "atmosphere": "thick, hazy, non-modern",
+        "continents": "no modern continents; scattered protocrustal islands",
+        "vegetation": "none",
+        "palette": "dark blues, greys, muted orange glow from volcanic activity"
+      },
+      "key_finding": "Zircon evidence suggests liquid water existed on Earth's surface as early as 4.4 Ga, challenging the 'hellish Hadean' narrative.",
+      "prompt_keywords": ["waterworld", "dark ocean", "protocrust", "ancient zircon terrain", "no modern continents"]
+    },
+    {
+      "id": "hopkins_2008",
+      "authors": "Hopkins, M., Harrison, T.M., Manning, C.E.",
+      "year": 2008,
+      "title": "Low heat flow inferred from >4 Gyr zircons suggests Hadean plate boundary interactions",
+      "journal": "Nature",
+      "doi": "10.1038/nature07465",
+      "url": "https://www.nature.com/articles/nature07465",
+      "themes": ["tectonics", "crust", "cooling"],
+      "time_range_ga": [4.4, 4.0],
+      "visual_constraints": {
+        "surface": "fractured protocrust with localized volcanic belts",
+        "water": "possible shallow seas between crustal fragments",
+        "atmosphere": "thick but not uniformly glowing",
+        "tectonics": "proto-tectonic margins, fractured dark crust",
+        "palette": "dark basalt, faint red volcanic seams, grey-brown crust"
+      },
+      "key_finding": "Low heat flow suggests early plate-boundary-like interactions, meaning the Hadean was not simply a global magma ocean.",
+      "prompt_keywords": ["fractured protocrust", "volcanic belts", "proto-plate boundaries", "cooler crust", "dark basalt terrain"]
+    },
+    {
+      "id": "zahnle_2020",
+      "authors": "Zahnle, K., Lupu, R., Catling, D., Wogan, N.",
+      "year": 2020,
+      "title": "Creation and Evolution of Impact-generated Reduced Atmospheres of Early Earth",
+      "journal": "The Planetary Science Journal",
+      "doi": "10.3847/PSJ/ab7e2c",
+      "url": "https://faculty.washington.edu/dcatling/Zahnle2020_Impact-induced-Miller-Urey-atmospheres.pdf",
+      "themes": ["atmosphere", "impact", "chemistry"],
+      "time_range_ga": [4.5, 3.8],
+      "visual_constraints": {
+        "atmosphere": "thick reducing atmosphere with H2, CH4, NH3, HCN after large impacts",
+        "sky_color": "orange-brown haze, not blue; possibly reddish during impact aftermaths",
+        "visibility": "low visibility, heavy particulate haze",
+        "impact_effects": "steam plumes, vaporized rock, impact-generated fog",
+        "palette": "orange, brown, dark red, grey haze"
+      },
+      "key_finding": "Large impacts created transient reduced atmospheres rich in hydrogen and methane, suitable for prebiotic chemistry.",
+      "prompt_keywords": ["reducing atmosphere", "impact haze", "orange-brown sky", "steam plumes", "post-impact fog", "methane haze"]
+    },
+    {
+      "id": "martin_2008",
+      "authors": "Martin, W., Baross, J., Kelley, D., Russell, M.J.",
+      "year": 2008,
+      "title": "Hydrothermal vents and the origin of life",
+      "journal": "Nature Reviews Microbiology",
+      "doi": "10.1038/nrmicro1991",
+      "url": "https://www.nature.com/articles/nrmicro1991",
+      "themes": ["hydrothermal", "origin_of_life", "deep_sea"],
+      "time_range_ga": [4.2, 3.8],
+      "visual_constraints": {
+        "setting": "deep ocean floor with hydrothermal vent chimneys",
+        "vents": "black smokers emitting dark mineral-rich plumes",
+        "minerals": "iron-sulfur deposits, chimney structures",
+        "water": "turbulent mixing of superheated and cold water",
+        "light": "dim or no natural light, bioluminescence-free",
+        "palette": "deep black, mineral white/yellow chimney, dark green-black water"
+      },
+      "key_finding": "Alkaline hydrothermal vents provided chemical gradients and mineral catalysts for the origin of life.",
+      "prompt_keywords": ["black smoker vents", "iron-sulfur deposits", "hydrothermal chimney", "deep ocean floor", "mineral plumes", "prebiotic chemistry"]
+    },
+    {
+      "id": "turner_2025",
+      "authors": "Turner, S. et al.",
+      "year": 2025,
+      "title": "Formation and composition of Earth's Hadean protocrust",
+      "journal": "Nature",
+      "doi": "10.1038/s41586-025-08719-3",
+      "url": "https://www.nature.com/articles/s41586-025-08719-3",
+      "themes": ["protocrust", "geochemistry"],
+      "time_range_ga": [4.4, 4.0],
+      "visual_constraints": {
+        "surface": "differentiated protocrust, not a uniform magma ocean",
+        "crust_type": "mafic to intermediate composition, darker than modern continents",
+        "texture": "rough, fractured, partially solidified crustal plates",
+        "palette": "dark grey, charcoal, faint reddish undertones from residual heat"
+      },
+      "key_finding": "Early Earth's protocrust was compositionally diverse, challenging the simple magma-ocean model.",
+      "prompt_keywords": ["protocrust", "differentiated crust", "dark mafic surface", "fractured crustal plates", "partially solidified"]
+    },
+    {
+      "id": "vezinet_2025",
+      "authors": "Vezinet, A. et al.",
+      "year": 2025,
+      "title": "Growth of continental crust and lithosphere subduction in the Hadean revealed by geochemistry and geodynamics",
+      "journal": "Nature Communications",
+      "doi": "10.1038/s41467-025-59024-6",
+      "url": "https://doi.org/10.1038/s41467-025-59024-6",
+      "themes": ["crust_growth", "subduction", "tectonics"],
+      "time_range_ga": [4.4, 4.0],
+      "visual_constraints": {
+        "surface": "structured crustal landscape with early recycling zones",
+        "tectonics": "primitive subduction-like boundaries, not modern plate tectonics",
+        "volcanic": "chain-like volcanic activity along proto-boundaries",
+        "palette": "dark crust, orange-red volcanic lines, smoky haze"
+      },
+      "key_finding": "Continental crust growth and lithosphere recycling began in the Hadean.",
+      "prompt_keywords": ["early subduction", "crustal recycling", "volcanic chains", "proto-boundaries", "structured landscape"]
+    },
+    {
+      "id": "mojzsis_2001",
+      "authors": "Mojzsis, S.J., Harrison, T.M., Pidgeon, R.T.",
+      "year": 2001,
+      "title": "Oxygen-isotope evidence from ancient zircons for liquid water at the Earth's surface 4,300 Myr ago",
+      "journal": "Nature",
+      "doi": "10.1038/35084076",
+      "url": "https://www.nature.com/articles/35084076",
+      "themes": ["water", "zircon", "early_ocean"],
+      "time_range_ga": [4.3, 4.3],
+      "visual_constraints": {
+        "water": "liquid water on Earth's surface at 4.3 Ga",
+        "surface": "dark rocky terrain with pools or shallow seas",
+        "sky": "overcast, thick atmosphere, no blue sky",
+        "palette": "dark water, grey-black rock, hazy yellowish sky"
+      },
+      "key_finding": "Oxygen isotopes in 4.3 Ga zircons indicate liquid water interaction, pushing ocean formation back into the deep Hadean.",
+      "prompt_keywords": ["liquid water 4.3 Ga", "shallow seas", "dark rocky shoreline", "ancient ocean", "overcast thick sky"]
+    },
+    {
+      "id": "wilde_2001",
+      "authors": "Wilde, S.A., Valley, J.W., Peck, W.H., Graham, C.M.",
+      "year": 2001,
+      "title": "Evidence from detrital zircons for the existence of continental crust and oceans on the Earth 4.4 Gyr ago",
+      "journal": "Nature",
+      "doi": "10.1038/35053555",
+      "url": "https://www.nature.com/articles/35053555",
+      "themes": ["zircon", "ocean", "continental_crust"],
+      "time_range_ga": [4.4, 4.4],
+      "visual_constraints": {
+        "water": "ocean present as early as 4.4 Ga",
+        "crust": "granitic-type continental crust fragments",
+        "surface": "small protocontinental islands amid a dark global ocean",
+        "palette": "deep dark ocean, grey rocky islands, heavy overcast"
+      },
+      "key_finding": "Jack Hills zircons demonstrate continental crust and oceans existed at 4.4 Ga — only ~150 Myr after Earth formed.",
+      "prompt_keywords": ["4.4 Ga ocean", "protocontinental islands", "Jack Hills zircon", "global dark ocean", "earliest continental crust"]
+    },
+    {
+      "id": "sleep_2001",
+      "authors": "Sleep, N.H., Zahnle, K., Neuhoff, P.S.",
+      "year": 2001,
+      "title": "Initiation of clement surface conditions on the earliest Earth",
+      "journal": "Proceedings of the National Academy of Sciences",
+      "doi": "10.1073/pnas.071045698",
+      "url": "https://www.pnas.org/doi/10.1073/pnas.071045698",
+      "themes": ["clement_surface", "CO2", "ocean"],
+      "time_range_ga": [4.4, 4.0],
+      "visual_constraints": {
+        "surface": "relatively calm ocean surface, not perpetually boiling",
+        "atmosphere": "CO2-rich greenhouse atmosphere, thick clouds",
+        "temperature": "warm but not always molten; occasional calm periods",
+        "sky": "heavy greenish-grey cloud cover from CO2",
+        "palette": "warm grey ocean, thick cloud layers, subdued light"
+      },
+      "key_finding": "Clement (mild) surface conditions could have been established surprisingly early through CO2 weathering feedbacks.",
+      "prompt_keywords": ["clement surface", "CO2 atmosphere", "warm ocean", "thick cloud cover", "greenhouse early Earth"]
+    },
+    {
+      "id": "sleep_2010",
+      "authors": "Sleep, N.H.",
+      "year": 2010,
+      "title": "The Hadean-Archaean Environment",
+      "journal": "Cold Spring Harbor Perspectives in Biology",
+      "doi": "10.1101/cshperspect.a002527",
+      "url": "https://cshperspectives.cshlp.org/content/2/6/a002527",
+      "themes": ["environment", "review", "habitability"],
+      "time_range_ga": [4.5, 3.8],
+      "visual_constraints": {
+        "surface": "diverse: from magma ocean to temperate ocean over Hadean span",
+        "atmosphere": "evolving: steam → CO2-rich → mildly reducing",
+        "bombardment": "episodic heavy impacts causing temporary re-melting",
+        "palette": "transitional: bright orange-red early → dark blue-grey late"
+      },
+      "key_finding": "Comprehensive review showing Hadean-Archaean transition involved dramatic environmental shifts, not a single state.",
+      "prompt_keywords": ["Hadean-Archaean transition", "environmental evolution", "episodic bombardment", "magma to ocean", "evolving atmosphere"]
+    },
+    {
+      "id": "marchi_2014",
+      "authors": "Marchi, S., Bottke, W.F., Elkins-Tanton, L.T., et al.",
+      "year": 2014,
+      "title": "Widespread mixing and burial of Earth's Hadean crust by asteroid impacts",
+      "journal": "Nature",
+      "doi": "10.1038/nature13539",
+      "url": "https://www.nature.com/articles/nature13539",
+      "themes": ["impact", "crust_destruction", "bombardment"],
+      "time_range_ga": [4.5, 4.0],
+      "visual_constraints": {
+        "impacts": "frequent large asteroid impacts creating vast melt pools",
+        "surface": "heavily cratered, mixed and overturned crust",
+        "melt": "impact melt sheets stretching hundreds of kilometers",
+        "ejecta": "global ejecta blankets, debris-filled sky",
+        "palette": "glowing orange melt pools, dark cratered terrain, debris-choked atmosphere"
+      },
+      "key_finding": "Asteroid impacts were so frequent and large that they repeatedly mixed and buried early crust, explaining why almost no Hadean rock survives.",
+      "prompt_keywords": ["asteroid bombardment", "impact melt sheets", "cratered surface", "ejecta blankets", "crust destruction"]
+    },
+    {
+      "id": "elkins_tanton_2012",
+      "authors": "Elkins-Tanton, L.T.",
+      "year": 2012,
+      "title": "Magma Oceans in the Inner Solar System",
+      "journal": "Annual Review of Earth and Planetary Sciences",
+      "doi": "10.1146/annurev-earth-042711-105503",
+      "url": "https://www.annualreviews.org/doi/10.1146/annurev-earth-042711-105503",
+      "themes": ["magma_ocean", "planetary_formation", "solidification"],
+      "time_range_ga": [4.53, 4.4],
+      "visual_constraints": {
+        "surface": "global magma ocean, glowing red-orange",
+        "solidification": "dark solidified rafts floating on magma",
+        "atmosphere": "thick steam atmosphere from degassing magma ocean",
+        "sky": "orange-red glow reflecting off low clouds",
+        "palette": "incandescent orange, deep red, black solidified crust, white-hot cracks"
+      },
+      "key_finding": "Earth's earliest phase involved a global magma ocean that solidified from the bottom up over ~few million years.",
+      "prompt_keywords": ["magma ocean", "solidification rafts", "steam atmosphere", "glowing surface", "incandescent planet", "degassing"]
+    },
+    {
+      "id": "canup_2012",
+      "authors": "Canup, R.M.",
+      "year": 2012,
+      "title": "Forming a Moon with an Earth-like Composition via a Giant Impact",
+      "journal": "Science",
+      "doi": "10.1126/science.1226073",
+      "url": "https://www.science.org/doi/10.1126/science.1226073",
+      "themes": ["moon_formation", "giant_impact", "theia"],
+      "time_range_ga": [4.53, 4.51],
+      "visual_constraints": {
+        "event": "catastrophic collision between proto-Earth and Theia",
+        "debris": "massive debris disk surrounding shattered Earth",
+        "surface": "completely molten, vaporized rock atmosphere",
+        "moon": "proto-Moon accreting from debris ring",
+        "palette": "white-hot impact zone, orange debris field, black space, glowing accretion disk"
+      },
+      "key_finding": "The Moon-forming impact was so energetic it likely vaporized a significant fraction of both bodies.",
+      "prompt_keywords": ["giant impact", "Theia collision", "debris disk", "Moon formation", "vaporized rock", "molten Earth"]
+    },
+    {
+      "id": "bottke_2012",
+      "authors": "Bottke, W.F., Vokrouhlický, D., Minton, D., et al.",
+      "year": 2012,
+      "title": "An Archaean heavy bombardment from a destabilized extension of the asteroid belt",
+      "journal": "Nature",
+      "doi": "10.1038/nature10967",
+      "url": "https://www.nature.com/articles/nature10967",
+      "themes": ["late_heavy_bombardment", "impacts", "asteroid_belt"],
+      "time_range_ga": [4.1, 3.8],
+      "visual_constraints": {
+        "impacts": "sustained bombardment over hundreds of millions of years",
+        "sky": "frequent bright streaks of incoming bolides",
+        "craters": "overlapping impact basins",
+        "surface": "scarred, cratered dark terrain",
+        "palette": "dark terrain, bright impact flashes, smoky atmosphere"
+      },
+      "key_finding": "Late Heavy Bombardment may have extended from a destabilized inner asteroid belt, not just outer solar system migration.",
+      "prompt_keywords": ["late heavy bombardment", "bolide streaks", "overlapping craters", "sustained impacts", "scarred terrain"]
+    },
+    {
+      "id": "trail_2011",
+      "authors": "Trail, D., Watson, E.B., Tailby, N.D.",
+      "year": 2011,
+      "title": "The oxidation state of Hadean magmas and implications for early Earth's atmosphere",
+      "journal": "Nature",
+      "doi": "10.1038/nature10655",
+      "url": "https://www.nature.com/articles/nature10655",
+      "themes": ["atmosphere", "redox", "magma"],
+      "time_range_ga": [4.4, 4.0],
+      "visual_constraints": {
+        "atmosphere": "moderately oxidized, not extremely reducing",
+        "volcanic_gases": "CO2 and water vapor dominant, some SO2",
+        "sky": "dense, hazy, grey-orange tones from volcanic emissions",
+        "surface": "volcanic terrain with fumaroles and gas vents",
+        "palette": "grey volcanic fog, orange sulfur tints, dark basalt"
+      },
+      "key_finding": "Hadean magmas were similar in oxidation state to modern ones, suggesting the atmosphere was not as extremely reducing as some models predict.",
+      "prompt_keywords": ["volcanic emissions", "CO2 atmosphere", "fumaroles", "sulfur haze", "moderately oxidized", "volcanic fog"]
+    },
+    {
+      "id": "russell_2014",
+      "authors": "Russell, M.J., Barge, L.M., Bhartia, R., et al.",
+      "year": 2014,
+      "title": "The Drive to Life on Wet and Icy Worlds",
+      "journal": "Astrobiology",
+      "doi": "10.1089/ast.2013.1110",
+      "url": "https://www.liebertpub.com/doi/10.1089/ast.2013.1110",
+      "themes": ["origin_of_life", "alkaline_vents", "serpentinization"],
+      "time_range_ga": [4.2, 3.8],
+      "visual_constraints": {
+        "setting": "alkaline hydrothermal mound on ocean floor",
+        "structures": "porous mineral chimneys with internal chemical gradients",
+        "fluid": "warm alkaline fluid mixing with acidic ocean water",
+        "minerals": "iron-nickel sulfide, green rust, brucite precipitates",
+        "palette": "pale mineral towers, dark surrounding water, faint mineral glow"
+      },
+      "key_finding": "Alkaline hydrothermal vents (like Lost City) provide the chemical disequilibrium and mineral catalysts needed to drive the origin of life.",
+      "prompt_keywords": ["alkaline vents", "mineral chimneys", "serpentinization", "chemical gradients", "porous mineral structures", "Lost City type"]
+    },
+    {
+      "id": "korenaga_2006",
+      "authors": "Korenaga, J.",
+      "year": 2006,
+      "title": "Archean geodynamics and the thermal evolution of Earth",
+      "journal": "AGU Geophysical Monograph Series",
+      "doi": "10.1029/164GM03",
+      "url": "https://doi.org/10.1029/164GM03",
+      "themes": ["geodynamics", "thermal_evolution", "mantle"],
+      "time_range_ga": [4.5, 2.5],
+      "visual_constraints": {
+        "interior": "vigorously convecting mantle beneath thin crust",
+        "surface": "thin, mobile crustal plates over hot mantle",
+        "volcanism": "widespread but not necessarily more voluminous than today",
+        "palette": "cross-section view: red-orange mantle, dark thin crust, volcanic punctures"
+      },
+      "key_finding": "Contrary to intuition, a hotter Hadean mantle may have produced LESS vigorous plate tectonics due to dehydration stiffening.",
+      "prompt_keywords": ["thin crust", "hot mantle", "mantle convection", "thermal evolution", "volcanic punctures"]
+    },
+    {
+      "id": "valley_2002",
+      "authors": "Valley, J.W., Peck, W.H., King, E.M., Wilde, S.A.",
+      "year": 2002,
+      "title": "A cool early Earth",
+      "journal": "Geology",
+      "doi": "10.1130/0091-7613(2002)030<0351:ACEE>2.0.CO;2",
+      "url": "https://pubs.geoscienceworld.org/gsa/geology/article/30/4/351/192395/",
+      "themes": ["cool_hadean", "zircon", "temperature"],
+      "time_range_ga": [4.4, 4.0],
+      "visual_constraints": {
+        "surface": "temperate to warm, not necessarily hellish",
+        "water": "stable liquid water, potentially widespread oceans",
+        "sky": "overcast but not fire-filled",
+        "landscape": "dark rocky terrain with calm water bodies",
+        "palette": "muted dark blues, grey rock, overcast white-grey sky"
+      },
+      "key_finding": "Landmark 'Cool Early Earth' hypothesis: zircon oxygen isotopes suggest surface temperatures were moderate enough for liquid water at 4.4 Ga.",
+      "prompt_keywords": ["cool early Earth", "temperate Hadean", "stable liquid water", "calm dark ocean", "overcast rocky world"]
+    },
+    {
+      "id": "nisbet_sleep_2001",
+      "authors": "Nisbet, E.G., Sleep, N.H.",
+      "year": 2001,
+      "title": "The habitat and nature of early life",
+      "journal": "Nature",
+      "doi": "10.1038/35059210",
+      "url": "https://www.nature.com/articles/35059210",
+      "themes": ["early_life", "habitat", "hydrothermal"],
+      "time_range_ga": [4.2, 3.5],
+      "visual_constraints": {
+        "setting": "hydrothermal environments as cradles for early life",
+        "surface": "warm shallow pools near volcanic vents",
+        "water": "mineral-rich hot springs, tide pools",
+        "palette": "warm mineral-stained pools, dark rock, steam wisps"
+      },
+      "key_finding": "Early life likely emerged in hydrothermal settings, possibly both deep-sea vents and shallow volcanic hot springs.",
+      "prompt_keywords": ["hydrothermal habitat", "shallow hot springs", "mineral pools", "volcanic hot springs", "prebiotic environment"]
+    },
+    {
+      "id": "tarduno_2015",
+      "authors": "Tarduno, J.A., Cottrell, R.D., Davis, W.J., et al.",
+      "year": 2015,
+      "title": "A Hadean to Paleoarchean geodynamo recorded by single zircon crystals",
+      "journal": "Science",
+      "doi": "10.1126/science.aaa9114",
+      "url": "https://www.science.org/doi/10.1126/science.aaa9114",
+      "themes": ["magnetic_field", "geodynamo", "zircon"],
+      "time_range_ga": [4.2, 3.4],
+      "visual_constraints": {
+        "magnetic_field": "early Earth had a magnetic field, providing some solar wind shielding",
+        "aurora": "possible intense auroral displays at poles",
+        "atmosphere": "partially shielded from solar wind stripping",
+        "palette": "dark sky with faint green/red auroral glow at horizon"
+      },
+      "key_finding": "Zircon paleomagnetic records suggest Earth had a geodynamo (magnetic field) as early as 4.2 Ga.",
+      "prompt_keywords": ["early magnetic field", "Hadean aurora", "geodynamo", "solar wind shielding", "polar auroral glow"]
+    },
+    {
+      "id": "bada_2004",
+      "authors": "Bada, J.L.",
+      "year": 2004,
+      "title": "How life began on Earth: a status report",
+      "journal": "Earth and Planetary Science Letters",
+      "doi": "10.1016/j.epsl.2004.07.036",
+      "url": "https://doi.org/10.1016/j.epsl.2004.07.036",
+      "themes": ["origin_of_life", "prebiotic_chemistry", "review"],
+      "time_range_ga": [4.4, 3.8],
+      "visual_constraints": {
+        "setting": "diverse prebiotic environments: tidal pools, hydrothermal vents, impact craters with ponds",
+        "chemistry": "organic molecules accumulating in shallow warm pools",
+        "lightning": "electrical discharges in reducing atmosphere",
+        "palette": "dark pools with mineral deposits, lightning-lit sky, steam"
+      },
+      "key_finding": "Multiple environments may have contributed to prebiotic chemistry, not just a single 'warm little pond'.",
+      "prompt_keywords": ["prebiotic chemistry", "warm pools", "lightning atmosphere", "organic accumulation", "impact crater ponds"]
+    },
+    {
+      "id": "genda_abe_2005",
+      "authors": "Genda, H., Abe, Y.",
+      "year": 2005,
+      "title": "Enhanced atmospheric loss on protoplanets at the giant impact phase in the presence of oceans",
+      "journal": "Nature",
+      "doi": "10.1038/nature03227",
+      "url": "https://www.nature.com/articles/nature03227",
+      "themes": ["giant_impact", "atmosphere_loss", "ocean"],
+      "time_range_ga": [4.53, 4.5],
+      "visual_constraints": {
+        "event": "giant impact blowing off atmosphere and ocean material",
+        "debris": "water vapor and atmosphere ejected into space",
+        "surface": "exposed magma beneath stripped ocean",
+        "space_view": "visible shock wave expanding from impact point",
+        "palette": "white-hot impact, blue-white atmosphere being blown away, dark space"
+      },
+      "key_finding": "Giant impacts could strip away oceans and atmospheres, meaning early Earth may have repeatedly lost and regained its volatile envelope.",
+      "prompt_keywords": ["atmosphere stripping", "giant impact", "ocean ejection", "shock wave", "volatile loss", "exposed magma"]
+    },
+    {
+      "id": "abe_1997",
+      "authors": "Abe, Y.",
+      "year": 1997,
+      "title": "Thermal and chemical evolution of the terrestrial magma ocean",
+      "journal": "Physics of the Earth and Planetary Interiors",
+      "doi": "10.1016/S0031-9201(97)00030-1",
+      "url": "https://doi.org/10.1016/S0031-9201(97)00030-1",
+      "themes": ["magma_ocean", "thermal_evolution", "solidification"],
+      "time_range_ga": [4.53, 4.4],
+      "visual_constraints": {
+        "surface": "global magma ocean gradually solidifying",
+        "crust_formation": "thin dark crust forming and breaking on magma surface",
+        "degassing": "massive volcanic outgassing creating steam atmosphere",
+        "palette": "incandescent orange-red magma, black floating crust, white steam clouds"
+      },
+      "key_finding": "The magma ocean solidified relatively quickly (~few Myr), with volatile outgassing creating a thick steam atmosphere.",
+      "prompt_keywords": ["magma ocean solidification", "floating dark crust", "steam outgassing", "incandescent surface", "crust formation"]
+    },
+    {
+      "id": "kasting_1993",
+      "authors": "Kasting, J.F.",
+      "year": 1993,
+      "title": "Earth's Early Atmosphere",
+      "journal": "Science",
+      "doi": "10.1126/science.11536547",
+      "url": "https://www.science.org/doi/10.1126/science.11536547",
+      "themes": ["atmosphere", "CO2", "greenhouse"],
+      "time_range_ga": [4.5, 2.5],
+      "visual_constraints": {
+        "atmosphere": "thick CO2/N2 atmosphere with no free O2",
+        "sky_color": "pale orange to yellowish, not blue",
+        "greenhouse": "strong greenhouse warming, warm surface despite fainter Sun",
+        "uv": "intense UV at surface due to no ozone layer",
+        "palette": "orange-yellow hazy sky, warm grey ocean, faint Sun disk"
+      },
+      "key_finding": "Classic paper establishing early Earth's atmosphere was CO2/N2-dominated with strong greenhouse effect compensating for the faint young Sun.",
+      "prompt_keywords": ["CO2 atmosphere", "faint young Sun", "greenhouse warming", "orange sky", "no ozone", "UV-intense surface"]
+    },
+    {
+      "id": "goldblatt_2011",
+      "authors": "Goldblatt, C., Claire, M.W., Lenton, T.M., et al.",
+      "year": 2011,
+      "title": "Nitrogen-enhanced greenhouse warming on early Earth",
+      "journal": "Nature Geoscience",
+      "doi": "10.1038/ngeo1207",
+      "url": "https://www.nature.com/articles/ngeo1207",
+      "themes": ["atmosphere", "nitrogen", "greenhouse"],
+      "time_range_ga": [4.5, 2.5],
+      "visual_constraints": {
+        "atmosphere": "thick N2-CO2 atmosphere, denser than today",
+        "pressure": "higher surface atmospheric pressure",
+        "light_scattering": "more Rayleigh scattering but overwhelmed by CO2 absorption",
+        "sky": "hazy, potentially whitish-orange from thick atmosphere",
+        "palette": "dense hazy horizon, diffused sunlight, warm-toned sky"
+      },
+      "key_finding": "Higher nitrogen partial pressure in early atmosphere enhanced greenhouse warming, helping solve the faint young Sun paradox.",
+      "prompt_keywords": ["thick nitrogen atmosphere", "dense haze", "enhanced greenhouse", "high pressure atmosphere", "diffused sunlight"]
+    },
+    {
+      "id": "chyba_sagan_1992",
+      "authors": "Chyba, C., Sagan, C.",
+      "year": 1992,
+      "title": "Endogenous production, exogenous delivery and impact-shock synthesis of organic molecules: an inventory for the origins of life",
+      "journal": "Nature",
+      "doi": "10.1038/355125a0",
+      "url": "https://www.nature.com/articles/355125a0",
+      "themes": ["organic_molecules", "impacts", "origin_of_life"],
+      "time_range_ga": [4.5, 3.8],
+      "visual_constraints": {
+        "event": "comets and meteorites delivering organic material to early Earth",
+        "surface": "impact sites with organic-rich melt pools",
+        "atmosphere": "UV photochemistry producing organic haze",
+        "palette": "dark impact pools, organic-brown deposits, hazy atmosphere"
+      },
+      "key_finding": "Organic molecules on early Earth came from multiple sources: atmospheric synthesis, hydrothermal vents, and extraterrestrial delivery via impacts.",
+      "prompt_keywords": ["comet delivery", "organic molecules", "impact melt pools", "UV photochemistry", "meteorite bombardment"]
+    },
+    {
+      "id": "johnson_goldblatt_2015",
+      "authors": "Johnson, B., Goldblatt, C.",
+      "year": 2015,
+      "title": "The nitrogen budget of Earth",
+      "journal": "Earth-Science Reviews",
+      "doi": "10.1016/j.earscirev.2015.05.006",
+      "url": "https://doi.org/10.1016/j.earscirev.2015.05.006",
+      "themes": ["nitrogen", "atmosphere", "volatile_budget"],
+      "time_range_ga": [4.5, 0],
+      "visual_constraints": {
+        "atmosphere": "possibly 2-3x modern atmospheric pressure from nitrogen alone",
+        "sky": "dense, creating strong light scattering near horizon",
+        "ocean": "nitrogen dissolved in early ocean affecting color",
+        "palette": "thick atmosphere haze, compressed horizon, dense air shimmer"
+      },
+      "key_finding": "Early Earth may have had 2-3x the modern atmospheric mass from nitrogen alone, affecting surface pressure and climate.",
+      "prompt_keywords": ["dense atmosphere", "high pressure", "nitrogen-rich", "compressed horizon", "thick air"]
+    },
+    {
+      "id": "kamber_2015",
+      "authors": "Kamber, B.S.",
+      "year": 2015,
+      "title": "The evolving nature of terrestrial crust from the Hadean, through the Archaean, into the Proterozoic",
+      "journal": "Precambrian Research",
+      "doi": "10.1016/j.precamres.2015.03.015",
+      "url": "https://doi.org/10.1016/j.precamres.2015.03.015",
+      "themes": ["crust_evolution", "Hadean_to_Archaean", "geochemistry"],
+      "time_range_ga": [4.5, 2.5],
+      "visual_constraints": {
+        "surface": "evolving crust: ultramafic (very dark, dense) → mafic → felsic over time",
+        "color": "Hadean crust was darker (ultramafic komatiite-like) than modern continents",
+        "texture": "glassy, fine-grained dark volcanic rock",
+        "palette": "very dark green-black ultramafic rock, dark sea"
+      },
+      "key_finding": "Hadean crust was compositionally distinct from modern continents — darker, denser, and more mafic.",
+      "prompt_keywords": ["ultramafic crust", "dark dense rock", "komatiite", "evolving crust", "dark volcanic terrain"]
+    },
+    {
+      "id": "debaille_2013",
+      "authors": "Debaille, V., O'Neill, C., Brandon, A.D., et al.",
+      "year": 2013,
+      "title": "Stagnant-lid tectonics in early Earth revealed by 142Nd variations in late Archean rocks",
+      "journal": "Earth and Planetary Science Letters",
+      "doi": "10.1016/j.epsl.2013.07.023",
+      "url": "https://doi.org/10.1016/j.epsl.2013.07.023",
+      "themes": ["tectonics", "stagnant_lid", "early_earth"],
+      "time_range_ga": [4.5, 3.0],
+      "visual_constraints": {
+        "tectonics": "single-plate (stagnant lid) rather than modern plate tectonics",
+        "surface": "one continuous dark crust, punctuated by volcanic hotspots",
+        "volcanism": "plume-driven volcanoes rather than subduction arc chains",
+        "palette": "monotone dark surface, isolated volcanic plumes, no mountain ranges"
+      },
+      "key_finding": "Early Earth may have had stagnant-lid tectonics (like Venus today) rather than modern-style plate tectonics.",
+      "prompt_keywords": ["stagnant lid", "single plate", "volcanic hotspots", "plume volcanism", "no subduction", "Venus-like tectonics"]
+    },
+    {
+      "id": "arndt_nisbet_2012",
+      "authors": "Arndt, N.T., Nisbet, E.G.",
+      "year": 2012,
+      "title": "Processes on the Young Earth and the Habitats of Early Life",
+      "journal": "Annual Review of Earth and Planetary Sciences",
+      "doi": "10.1146/annurev-earth-042711-105316",
+      "url": "https://doi.org/10.1146/annurev-earth-042711-105316",
+      "themes": ["early_earth_review", "habitability", "volcanism"],
+      "time_range_ga": [4.5, 3.5],
+      "visual_constraints": {
+        "surface": "komatiite lava flows — extremely hot, fluid, fast-spreading",
+        "volcanism": "more widespread and voluminous eruptions than modern Earth",
+        "ocean": "hot ocean (possibly 60-80°C), greenish-tinted from dissolved iron",
+        "palette": "dark komatiite flows, greenish warm ocean, smoky volcanic sky"
+      },
+      "key_finding": "Early Earth volcanism produced komatiites (ultra-hot lavas), and oceans may have been significantly warmer and iron-rich.",
+      "prompt_keywords": ["komatiite lava", "ultra-hot eruptions", "warm iron-rich ocean", "greenish ocean", "widespread volcanism"]
+    }
+  ],
+
+  "visual_themes": {
+    "orbit": {
+      "description": "View of Hadean Earth from space",
+      "relevant_paper_ids": ["harrison_2009", "wilde_2001", "elkins_tanton_2012", "canup_2012", "kasting_1993"],
+      "composite_constraints": "Dark planet with scattered volcanic glow, thick hazy atmosphere, no recognizable modern continents, possible partial ocean coverage, debris from recent impacts"
+    },
+    "coast": {
+      "description": "Ground-level volcanic coastline with primordial ocean",
+      "relevant_paper_ids": ["valley_2002", "sleep_2001", "trail_2011", "kamber_2015", "arndt_nisbet_2012"],
+      "composite_constraints": "Black basaltic or komatiite shoreline, dark warm ocean, dense steam, volcanic haze sky, no vegetation, possible lightning, sulfurous atmosphere"
+    },
+    "impact": {
+      "description": "Meteorite or asteroid impact event",
+      "relevant_paper_ids": ["marchi_2014", "bottke_2012", "zahnle_2020", "genda_abe_2005", "chyba_sagan_1992"],
+      "composite_constraints": "Massive bolide striking surface or ocean, enormous steam/ejecta plume, shock wave, glowing impact melt, debris-filled sky, global dust layer"
+    },
+    "vent": {
+      "description": "Deep-sea hydrothermal vents and prebiotic environment",
+      "relevant_paper_ids": ["martin_2008", "russell_2014", "nisbet_sleep_2001", "bada_2004"],
+      "composite_constraints": "Dark ocean floor, mineral chimneys (black or white smokers), chemical-rich plumes, iron-sulfur deposits, no sunlight, turbulent mixing zones"
+    },
+    "magma_ocean": {
+      "description": "Global magma ocean phase of earliest Earth",
+      "relevant_paper_ids": ["elkins_tanton_2012", "abe_1997", "canup_2012"],
+      "composite_constraints": "Incandescent surface, floating dark solidified crust rafts, thick steam atmosphere, orange-red glow, no liquid water yet"
+    },
+    "cool_hadean": {
+      "description": "The 'Cool Early Earth' — Hadean with liquid water and calmer conditions",
+      "relevant_paper_ids": ["valley_2002", "sleep_2001", "mojzsis_2001", "harrison_2009"],
+      "composite_constraints": "Dark ocean under thick overcast sky, rocky islands, warm but not hellish, no modern blue sky, muted and subdued tones"
+    }
+  },
+
+  "timeline": [
+    {"time_ga": 4.53, "event": "Moon-forming giant impact (Theia collision)", "paper_ids": ["canup_2012", "genda_abe_2005"]},
+    {"time_ga": 4.5, "event": "Global magma ocean phase", "paper_ids": ["elkins_tanton_2012", "abe_1997"]},
+    {"time_ga": 4.4, "event": "Possible liquid water and earliest continental crust", "paper_ids": ["wilde_2001", "valley_2002", "harrison_2009"]},
+    {"time_ga": 4.3, "event": "Oxygen-isotope evidence for surface liquid water", "paper_ids": ["mojzsis_2001"]},
+    {"time_ga": 4.2, "event": "Early geodynamo and magnetic field", "paper_ids": ["tarduno_2015"]},
+    {"time_ga": 4.1, "event": "Sustained heavy bombardment continues", "paper_ids": ["marchi_2014", "bottke_2012"]},
+    {"time_ga": 4.0, "event": "Protocrust differentiation and possible early tectonics", "paper_ids": ["turner_2025", "vezinet_2025", "hopkins_2008"]},
+    {"time_ga": 3.9, "event": "Late Heavy Bombardment peak", "paper_ids": ["bottke_2012"]},
+    {"time_ga": 3.8, "event": "Transition to Eoarchean; earliest possible life", "paper_ids": ["sleep_2010", "nisbet_sleep_2001"]}
+  ]
+}
