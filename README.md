@@ -20,80 +20,51 @@
 
 ```mermaid
 flowchart TD
-    A["📚 文献调研<br/>Hadean 相关论文与 NASA 资料"] --> B["🗄️ 论文知识库<br/>hadean_paper_database.json"]
-    B --> C["🔍 RAG 检索 + Prompt 生成<br/>paper_to_prompt_rag.py"]
-    C --> D["📝 结构化 Prompt<br/>prompts.json"]
+    A["📚 收集 30 篇冥古宙论文<br/>提取视觉约束"] --> B["🗂️ 结构化论文数据库<br/>hadean_paper_database.json<br/>6 大主题 · 9 个时间节点"]
+    B --> C["🔍 RAG 检索<br/>paper_to_prompt_rag.py<br/>按主题/时间匹配视觉关键词"]
+    C --> D["🧩 Prompt 组装<br/>结构化正/负提示词<br/>文献约束自动注入"]
 
-    D --> E1["🤖 OpenAI GPT Image"]
-    D --> E2["🎨 FLUX"]
-    D --> E3["🖼️ Midjourney"]
-    D --> E4["✏️ Ideogram"]
+    D --> E1["🎨 FLUX Pro 1.1<br/>Black Forest Labs API"]
+    D --> E2["💎 Gemini 2.5 Flash<br/>Google Gemini Image API"]
 
-    E1 --> F["🖼️ 生成图像集"]
+    E1 --> F["⚖️ 同主题双模型对比<br/>6 主题 × 2 模型 = 12 张图"]
     E2 --> F
-    E3 --> F
-    E4 --> F
 
-    F --> G["👁️ 人工筛选 + 标注<br/>60-120 张精选图像"]
-    G --> H["📦 构建训练数据集<br/>build_imagefolder_dataset.py<br/>imagefolder/ + metadata.jsonl"]
-
-    H --> I["⚡ SDXL LoRA 微调<br/>HPC 集群 · A100 GPU<br/>rank=16 · 1500 steps"]
-    I --> J["🧩 LoRA 权重<br/>≈ 10-50 MB"]
-
-    J --> K["🔗 合并 LoRA + SDXL 基座模型"]
-    K --> L["🌋 风格一致的冥古宙图像"]
-
-    F --> M["📊 多模型对比展示<br/>同一科学设定 × 不同 AI 工具"]
-    L --> M
-    M --> N["🎬 最终展示<br/>hadean.oybdooo.workers.dev"]
+    F --> G["🎬 构建展示网站<br/>build_presentation.py<br/>hadean.oybdooo.workers.dev"]
 
     style A fill:#4a90d9,color:#fff
-    style I fill:#e74c3c,color:#fff
-    style N fill:#27ae60,color:#fff
+    style F fill:#e67e22,color:#fff
+    style G fill:#27ae60,color:#fff
 ```
 
-### 什么是 LoRA 微调？
+### 工具链
 
-**LoRA**（Low-Rank Adaptation）是一种**参数高效微调**方法，核心思想是：
-
-> 不修改预训练大模型的原始权重，而是在模型的注意力层旁边插入一对小的低秩矩阵 $A$ 和 $B$，只训练这对矩阵。
-
-#### 数学原理
-
-原始模型权重矩阵 $W_0 \in \mathbb{R}^{d \times k}$ 在推理时变为：
-
-$$W = W_0 + \Delta W = W_0 + BA$$
-
-其中 $B \in \mathbb{R}^{d \times r}$，$A \in \mathbb{R}^{r \times k}$，$r \ll \min(d, k)$。
-
-- $r$ 就是 **rank**（秩），本项目设为 16
-- 原始 SDXL 模型约 6.9B 参数，LoRA 只需训练 **几百万** 参数
-- 最终产出的 LoRA 权重文件仅 **10-50 MB**
-
-#### 为什么用 LoRA？
-
-| 对比项 | 全参数微调 | LoRA 微调 |
-|--------|-----------|----------|
-| 训练参数量 | 数十亿 | 数百万 |
-| 显存需求 | 80 GB+ | 24 GB 起步 |
-| 训练时间 | 数天 | 数小时 |
-| 权重文件大小 | ~13 GB | ~10-50 MB |
-| 是否破坏基座能力 | 可能 | 不会 |
-
-#### 本项目的 LoRA 训练配置
-
-```text
-基座模型:    stabilityai/stable-diffusion-xl-base-1.0
-训练分辨率:  768×768
-LoRA rank:  16
-批次大小:    1 (梯度累积 4 步 → 等效 batch 4)
-学习率:      1e-4
-训练步数:    1,500 steps
-混合精度:    bf16
-调度器:      HPC Slurm (单卡 A100)
+```
+paper_to_prompt_rag.py → batch_generate_images.py → build_presentation.py
 ```
 
-训练完成后，将 LoRA 权重加载到 SDXL 基座模型上，就能让它更稳定地生成符合冥古宙科学设定的图像——黑色玄武岩海岸、蒸汽海洋、火山灰天空、非现代大气。
+### 6 个可视化主题
+
+| 主题 | 时间 | 描述 |
+|------|------|------|
+| 🌍 宏观行星视角 | 4.2 Ga | 太空俯瞰：暗色原始洋壳、火山辉光、浓厚朦胧大气 |
+| 🌊 原始海岸线 | 4.0 Ga | 黑色玄武岩海岸、暗色温暖海洋、硫化物大气 |
+| ☄️ 陨石撞击事件 | 4.2 Ga | 巨型小行星撞击、蒸汽羽流、冲击波、撞击熔融物 |
+| 🔥 热液喷口与生命起源 | 4.0 Ga | 深海黑烟囱/白烟囱、铁硫化物沉积 |
+| 🔴 全球岩浆海洋 | 4.5 Ga | 炽热表面、暗色固化地壳碎片、浓厚蒸汽大气 |
+| 🌙 温和的冥古宙 | 4.2 Ga | 挑战"地狱叙事"——厚云层下的暗色海洋与岩石岛屿 |
+
+### 生成成本
+
+| 工具 | 费用 | 说明 |
+|------|------|------|
+| FLUX Pro 1.1 | $10 | ~$0.055/张, 1440×960 |
+| Gemini 2.5 Flash | ¥20 | 通过 NovAI 代理转发 |
+| **总计** | **≈ ¥93** | 14 张图，平均 ¥6.6/张 |
+
+### 关键思路
+
+每张图像的 Prompt 并非凭空想象，而是由论文中提取的地质、大气、海洋等视觉特征**自动检索并拼装**而成。这是一个**文献驱动的推测性视觉重建**（Literature-informed Speculative Visualization）流程。
 
 ## 项目结构
 
